@@ -1,8 +1,8 @@
-package com.example.demo.model;
+package com.example.demo.reminder;
 
 import java.util.Date;
 
-public class Reminder {
+public class ReminderResponse {
     String name;
     Date date;
 
@@ -21,4 +21,5 @@ public class Reminder {
     public void setDate(Date date) {
         this.date = date;
     }
+
 }

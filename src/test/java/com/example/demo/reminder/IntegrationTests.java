@@ -1,24 +1,16 @@
-package com.example.demo;
+package com.example.demo.reminder;
 
-import com.example.demo.controller.ReminderController;
-import com.example.demo.requests.ReminderResponse;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.test.autoconfigure.graphql.tester.AutoConfigureGraphQlTester;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
-import org.springframework.test.web.servlet.MockMvc;
-
-import java.sql.Date;
-import java.time.LocalDate;
 
 import static org.assertj.core.api.Assertions.assertThat;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class DemoApplicationTests {
+class IntegrationTests {
 	@Value(value="${local.server.port}")
 	private int port;
 
