@@ -34,7 +34,7 @@ public class ReminderServiceTest {
         reminderMock.setDate(date);
         reminderMock.setName(eventName);
 
-        when(reminderRepository.getFirstByDate()).thenReturn(reminderMock);
+        when(reminderRepository.findFirst1ByOrderByDateDesc()).thenReturn(reminderMock);
 
         Reminder reminder = reminderService.getLatest();
         assertThat(reminder.getDate().getTime()).isEqualTo(eventDateInTime);

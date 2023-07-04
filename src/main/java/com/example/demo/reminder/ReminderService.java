@@ -12,7 +12,7 @@ class ReminderService {
 
     Reminder getLatest() {
 
-        ReminderDTO latestDto = reminderRepository.getFirstByDate();
+        ReminderDTO latestDto = reminderRepository.findFirst1ByOrderByDateDesc();
         return DTOtoDomain(latestDto);
     }
 

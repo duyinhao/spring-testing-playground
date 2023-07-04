@@ -1,10 +1,18 @@
 package com.example.demo.reminder;
 
-import java.util.Date;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
+import java.util.Date;
+@Entity
 public class ReminderDTO {
     String name;
     Date date;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
     String getName() {
         return name;
@@ -20,5 +28,13 @@ public class ReminderDTO {
 
     void setDate(Date date) {
         this.date = date;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
     }
 }
