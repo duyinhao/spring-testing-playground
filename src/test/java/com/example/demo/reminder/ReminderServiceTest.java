@@ -1,6 +1,7 @@
 package com.example.demo.reminder;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 
@@ -27,5 +28,9 @@ public class ReminderServiceTest {
         reminderMock.setName(eventName);
 
         when(reminderRepository.getFirstByDate()).thenReturn(reminderMock);
+
+        reminderService = new ReminderService(reminderRepository);
     }
+
+
 }
