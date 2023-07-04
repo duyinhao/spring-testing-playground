@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ReminderRepository extends JpaRepository<ReminderDTO, Long> {
-    public Reminder getFirstByDate();
+    public ReminderDTO getFirstByDate();
 }

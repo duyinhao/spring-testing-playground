@@ -1,6 +1,5 @@
 package com.example.demo.reminder;
 
-import com.example.demo.reminder.Reminder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,7 +15,7 @@ public class ReminderController {
 
     @GetMapping
     public Reminder getReminder() {
-        return reminderService.getLatestReminder();
+        return reminderService.getLatest();
     }
 
 

@@ -10,7 +10,16 @@ class ReminderService {
         this.reminderRepository = reminderRepository;
     }
 
-    Reminder getLatestReminder() {
-        return reminderRepository.getFirstByDate();
+    Reminder getLatest() {
+
+        ReminderDTO latestDto = reminderRepository.getFirstByDate();
+        return DTOtoDomain(latestDto);
+    }
+
+    Reminder DTOtoDomain(ReminderDTO reminderDTO){
+        Reminder reminder = new Reminder();
+        reminder.setName(reminderDTO.getName());
+        reminder.setDate(reminderDTO.getDate());
+        return reminder;
     }
 }

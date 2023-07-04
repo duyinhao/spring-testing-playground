@@ -34,9 +34,9 @@ public class ReminderControllerTest {
         reminderMock.setDate(date);
         reminderMock.setName(eventName);
 
-        when(reminderService.getLatestReminder()).thenReturn(reminderMock);
+        when(reminderService.getLatest()).thenReturn(reminderMock);
 
-        Reminder reminder = reminderService.getLatestReminder();
+        Reminder reminder = reminderService.getLatest();
 
         assertThat(reminder.getDate().getTime()).isEqualTo(dateInTime);
         assertThat(reminder.getName()).isEqualTo(eventName);
