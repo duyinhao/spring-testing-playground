@@ -20,9 +20,12 @@ public class ReminderServiceTest {
     String eventName = "Test Event";
     @BeforeEach
     void setup(){
-
         MockitoAnnotations.initMocks(this);
+        reminderService = new ReminderService(reminderRepository);
+    }
 
+    @Test
+    void getLatestReminder(){
         Reminder reminderMock = new Reminder();
         Date date = new Date();
 
@@ -32,11 +35,6 @@ public class ReminderServiceTest {
 
         when(reminderRepository.getFirstByDate()).thenReturn(reminderMock);
 
-        reminderService = new ReminderService(reminderRepository);
-    }
-
-    @Test
-    void getLatestReminder(){
         Reminder reminder = reminderService.getLatestReminder();
         assertThat(reminder.getDate().getTime()).isEqualTo(eventDateInTime);
         assertThat(reminder.getName()).isEqualTo(eventName);
