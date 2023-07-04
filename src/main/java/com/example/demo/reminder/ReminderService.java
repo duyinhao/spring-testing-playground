@@ -16,7 +16,7 @@ class ReminderService {
         return DTOtoDomain(latestDto);
     }
 
-    Reminder DTOtoDomain(ReminderDTO reminderDTO){
+    Reminder DTOtoDomain(ReminderDTO reminderDTO) {
         Reminder reminder = new Reminder();
         reminder.setName(reminderDTO.getName());
         reminder.setDate(reminderDTO.getDate());
