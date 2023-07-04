@@ -5,10 +5,12 @@ import org.springframework.stereotype.Service;
 @Service
 class ReminderService {
     ReminderRepository reminderRepository;
-    public ReminderService(ReminderRepository reminderRepository){
+
+    public ReminderService(ReminderRepository reminderRepository) {
         this.reminderRepository = reminderRepository;
     }
-    Reminder getLatestReminder(){
+
+    Reminder getLatestReminder() {
         return reminderRepository.getFirstByDate();
     }
 }

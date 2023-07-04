@@ -9,33 +9,34 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import static org.assertj.core.api.Assertions.assertThat;
+
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class IntegrationTests {
-	@Value(value="${local.server.port}")
-	private int port;
+    @Value(value = "${local.server.port}")
+    private int port;
 
-	@Autowired
-	private ReminderController reminderController;
+    @Autowired
+    private ReminderController reminderController;
 
-	@Autowired
-	private TestRestTemplate testRestTemplate;
+    @Autowired
+    private TestRestTemplate testRestTemplate;
 
-	@Test
-	void contextLoads() {
-		assertThat(reminderController).isNotNull();
-	}
+    @Test
+    void contextLoads() {
+        assertThat(reminderController).isNotNull();
+    }
 
-	@Test
-	void getReminderRequest() {
-		ResponseEntity<ReminderResponse> reminderResponseResponseEntity;
-		reminderResponseResponseEntity = testRestTemplate.getForEntity("/Reminder",ReminderResponse.class);
-		ReminderResponse reminderResponse = reminderResponseResponseEntity.getBody();
+    @Test
+    void getReminderRequest() {
+        ResponseEntity<ReminderResponse> reminderResponseResponseEntity;
+        reminderResponseResponseEntity = testRestTemplate.getForEntity("/Reminder", ReminderResponse.class);
+        ReminderResponse reminderResponse = reminderResponseResponseEntity.getBody();
 
-		assertThat(reminderResponseResponseEntity).isNotNull();
-		assertThat(reminderResponseResponseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
-		assertThat (reminderResponse).isNotNull();
-		assertThat(reminderResponse.getDate()).isEqualToIgnoringSeconds("2007-12-03");
-		assertThat(reminderResponse.getName()).isEqualTo("Event Name");
-	}
+        assertThat(reminderResponseResponseEntity).isNotNull();
+        assertThat(reminderResponseResponseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(reminderResponse).isNotNull();
+        assertThat(reminderResponse.getDate()).isEqualToIgnoringSeconds("2007-12-03");
+        assertThat(reminderResponse.getName()).isEqualTo("Event Name");
+    }
 
 }

@@ -17,12 +17,13 @@ public class ReminderControllerTest {
     ReminderController reminderController;
 
     @BeforeEach
-    public void setup(){
+    public void setup() {
         MockitoAnnotations.initMocks(this);
         reminderController = new ReminderController(reminderService);
     }
+
     @Test
-    public void getReminder(){
+    public void getReminder() {
         Reminder reminderMock = new Reminder();
         Date date = new Date();
         long dateInTime = 100;

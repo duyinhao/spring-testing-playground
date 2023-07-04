@@ -9,14 +9,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/Reminder")
 public class ReminderController {
     ReminderService reminderService;
-    public ReminderController(ReminderService reminderService){
+
+    public ReminderController(ReminderService reminderService) {
         this.reminderService = reminderService;
     }
+
     @GetMapping
-    public Reminder getReminder(){
+    public Reminder getReminder() {
         return reminderService.getLatestReminder();
     }
-
 
 
 }

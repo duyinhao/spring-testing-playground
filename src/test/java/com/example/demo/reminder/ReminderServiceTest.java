@@ -18,14 +18,15 @@ public class ReminderServiceTest {
 
     long eventDateInTime = 100;
     String eventName = "Test Event";
+
     @BeforeEach
-    void setup(){
+    void setup() {
         MockitoAnnotations.initMocks(this);
         reminderService = new ReminderService(reminderRepository);
     }
 
     @Test
-    void getLatestReminder(){
+    void getLatestReminder() {
         Reminder reminderMock = new Reminder();
         Date date = new Date();
 
