@@ -3,7 +3,6 @@ package com.example.demo.reminder;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
 import java.util.Date;
@@ -17,7 +16,7 @@ public class ReminderServiceTest {
 
     ReminderService reminderService;
 
-    long dateInTime = 100;
+    long eventDateInTime = 100;
     String eventName = "Test Event";
     @BeforeEach
     void setup(){
@@ -27,7 +26,7 @@ public class ReminderServiceTest {
         Reminder reminderMock = new Reminder();
         Date date = new Date();
 
-        date.setTime(dateInTime);
+        date.setTime(eventDateInTime);
         reminderMock.setDate(date);
         reminderMock.setName(eventName);
 
@@ -39,7 +38,7 @@ public class ReminderServiceTest {
     @Test
     void getLatestReminder(){
         Reminder reminder = reminderService.getLatestReminder();
-        assertThat(reminder.getDate().getTime()).isEqualTo(dateInTime);
+        assertThat(reminder.getDate().getTime()).isEqualTo(eventDateInTime);
         assertThat(reminder.getName()).isEqualTo(eventName);
     }
 }
