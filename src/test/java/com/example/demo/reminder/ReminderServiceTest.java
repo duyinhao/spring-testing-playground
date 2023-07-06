@@ -40,4 +40,10 @@ public class ReminderServiceTest {
         assertThat(reminder.getDate().getTime()).isEqualTo(eventDateInTime);
         assertThat(reminder.getName()).isEqualTo(eventName);
     }
+
+    @Test
+    void getLatestReminderWhenEmpty() {
+        when(reminderRepository.findFirst1ByOrderByDateDesc()).thenReturn(null);
+        reminderService.getLatest();
+    }
 }
